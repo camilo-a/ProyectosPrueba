@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+
+.small-flag {  
+    width: 50px;
+}
+
+.mr-5 {
+    margin-right: 5px;
+}
+
+.mi-tabla {
+    border-collapse: collapse; /* Combina los bordes de las celdas para un aspecto más limpio */
+    width: 100%; /* Establece el ancho de la tabla */
+    font-family: Arial, sans-serif; /* Establece la fuente */
+  }
+  
+  .mi-tabla th, .mi-tabla td {
+    padding: 8px; /* Establece el espacio de relleno dentro de las celdas */
+    text-align: left; /* Alinea el contenido de la celda a la izquierda */
+    border-bottom: 1px solid #ddd; /* Agrega un borde inferior a cada fila */
+  }
+  
+  .mi-tabla th {
+    background-color: #4CAF50; /* Establece el color de fondo de las celdas de encabezado */
+    color: white; /* Establece el color del texto en las celdas de encabezado */
+  }
+  
+

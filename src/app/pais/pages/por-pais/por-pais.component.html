@@ -1,50 +1,37 @@
-<h2>Por Pais</h2>
+<div class="animate__animated animate__fadeIn animate__faster">
+    <h2>Por Pais</h2>
 <hr>
 
 <div class="row">
     <div class="col">
-        <form (ngSubmit)="buscar()" autocomplete="off">
-            <input  type="text"
-                    name="termino"
-                    class="form-control"
-                    [(ngModel)]="termino"
-                    placeholder="Buscar pais..."/>
-        </form>
+        <app-pais-input 
+        
+        (onEnter) = "buscar( $event)"
+        (onDebounce)="sugerencias($event)"
+        placeholder="Buscar Pais...">
+        </app-pais-input>
     </div>
 </div>
 
+<ul class="list-group">
+    <li *ngFor="let pais of paisesSugeridos"
+    class="list-group-item list-group-item-action">
+        {{pais.name}}
+    </li>
+</ul>
+
 <hr>
-<div class="alert alert-danger">
-    No se encontro nada con el termino
+</div>
+<div 
+    *ngIf="hayError"
+    class="alert alert-danger">
+    No se encontraron resultados
 </div>
 
-<div class="row">
+<div *ngIf="paises.length > 0" class="row">
     <div class="col">
 
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Bandera</th>
-                    <th>Nombre</th>
-                    <th>Poblacion</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>bandera</td>
-                    <td>nombre</td>
-                    <td>12345</td>
-                    <td>
-                        <a href="/pais/chi">Ver ...</a>
-                    </td>
-                </tr>
-
-            </tbody>
-
-        </table>
+        <app-pais-tabla [paises]="paises"></app-pais-tabla>
     </div>
 
 </div>
